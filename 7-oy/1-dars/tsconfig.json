@@ -1,9 +1,0 @@
-{
-  "compilerOptions": {
-    "module": "CommonJS", // nestjs commonjs dan foidalanib ishlaydi
-    "target": "ES2022",
-    "experimentalDecorators": true,
-    "declaration": true,
-    "removeComments": true
-  }
-}
