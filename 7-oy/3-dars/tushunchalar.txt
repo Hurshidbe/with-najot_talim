@@ -1,0 +1,8 @@
+onmoduleinit --->
+onmoduledestroy --->
+export va export defaul farqi nimada? ---> nega nestjsda export defaul kamdan kam ishlatiladi?
+
+doim yaratgan hamma modullarimizni app.moduldagi importsga ro'yhatda o'tkazib qo'yishimiz kerak
+agar bu amalni bajarmasak kodda hatolik chiqmaydi. lekin qovunni biri bo'ladi . postmanda so'rov jo'natsak yo'l topolay qoladi
+
+
