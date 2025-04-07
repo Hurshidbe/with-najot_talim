@@ -51,14 +51,12 @@ export class CatsService {
       throw new error('Cat could not be found');
     }
 
-    // Yangilash
     cat.laqab = catdata.laqab;
     cat.kelgan_vaqti = catdata.kelgan_vaqti;
     cat.narxi = catdata.narxi;
     cat.zoti = catdata.zoti;
     cat.tugulgan_sana = catdata.tugulgan_sana;
 
-    // Saqlash
     await this.catRepo.save(cat);
 
     return { message: 'Cat info updated successfully', data: cat };
