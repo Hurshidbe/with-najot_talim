@@ -1,0 +1,83 @@
+# NestJS bo'yicha savol-javob mashqi
+
+## Savol 1
+
+NestJS frameworkida `@Controller()` dekoratori qanday vazifani bajaradi va u qanday parametrlarni qabul qiladi?
+
+NestJS da @Controller dekoratori--> bu class vazifasini HTTP so'rovlar qabul qiluvchi qilib belgilaydi.
+yani qishloqcha tilda aytganda : classni tepasiga @Controller dekoratorini yozib qo'ysak. classni ichida
+CRUD yozsak bo'ladi
+
+
+
+
+
+## Savol 2
+
+NestJS-da `@Injectable()` dekoratorining vazifasi nima va u qaysi pattern asosida ishlaydi?
+
+Karoche @Injectable dekoratorini 1-bo'lib classni xizmatchi qilib belgilaydi (service). keyin bu clasimizzi boshqa
+boshqa fayldagi classlarnii constructorida @inject qilib olib ishlatib ketoramiz.
+xullas meni fikrimcha @injectable ma'lum classni Boshqa classlar ichida ishlatishga imkon beradi 
+
+
+
+
+
+## Savol 3
+
+NestJS-da modullar (`@Module()`) nima vazifani bajaradi va ularda qanday key'lar mavjud?
+
+Nest da @Module --> eng asosiy dekoratorlardan biri. menimcha @Module dekoratorisiz yozilgan loyiha bo'lmasa kerak.
+chunki uni vazifasi : controllerlar , servicelar va modullarni   hammasini bir joyga yig'ib berish uchun ishlatiladi.
+masalan : kattaro loyihani kichik-kichik modullarga bo'lib yaratish osonroq va tushunarliroq. @Module dekoratoroni vazifasi:
+shu kichik-kichik modullarni bir joyga yi'gib berish va modullar orasida aloqani o'rnatish.
+Va @Module ichida quyidagi keylar bo'ladi : 
+imports : []      --> boshqa modellullarni shu yerga chaqiriladi
+Controllers : []  --> bu yerga barcha Controller lar yoziladi
+providers : []    --> bu yerda service chaqirib qo'yiladi
+exports : []      --> shu modelingizdan exportlarni shu yerga yoziladi
+
+
+## Savol 4
+
+NestJS-da `useFactory` provider qanday vaziyatlarda ishlatiladi va u qanday parametrlarni qabul qiladi?
+
+NestJS’da odatda service’larni class orqali beramiz. Lekin ba’zida servisni dinamik tarzda, ya’ni sharoitga 
+qarab yaratish kerak bo‘ladi. Shu vaqtda useFactory ishlatiladi.
+Karoche useFactory bu: Qo‘lda provider yasash usuli. Dinamik, sharoitga mos service yoki qiymat kerak bo‘lganda 
+kerak bo‘ladi. useFactory funksiyasi ichida nima qaytarsak, o‘sha narsa provider bo‘ladi
+
+
+## Savol 5
+
+NestJS-da custom provider yaratishning usullari qanday va ular qachon ishlatiladi?
+
+To'g'risi bu savolni ucha tushunmadiim . keyin gptga tashab shularni o'rgandim :
+xullar nestda custom provider yaratishni asosan 4 ta usuli borekan
+1:Class Provider --> bu usul ko'p ishlatilar ekan. Bu usulda provider sifatida class taqdim etiladi.
+  ishlatilishi : Agar oddiy service yoki helper class yaratmoqchi bo‘lsak.
+2:Value Provider --> Bu usulda biz qiymat yoki obyektni provider sifatida taqdim etamiz.
+  ishlatilishi : Agar bizda statik ma'lumot yokida konfiguratsiya bo'lsa.
+3:Factory Provider --> Bu usulda biz funksiya orqali provider yaratishimiz mumkin.  
+  ishlatilishi: Agar biz dinamik qiymat yoki tashqi resurslardan (masalan, konfiguratsiya faylidan) qiymat olishni xohlasak.
+4:Exiting Provider --> agar biz mavjud providerni alias qilib ishatmoqchi bo'lsak
+  ishlatilishi: Agar biz bir provider nomi bilan boshqa bir provider’ni chaqirmoqchi bo‘lsak.
+
+
+
+
+
+## Savol 6
+
+NestJS-da `@Module()` dekoratorining `imports` va `exports` key'lari o'rtasidagi farq nima?
+
+Xullas import va exports br-briga teskari vazifalarni bajaradi.
+export : yaratgan modulingizni(func , service ...) boshqa modullarga chiqaradi(yani export nomidan ma'lumku) 
+import : exportni teskarisi. siz ishlatayotgan modulingizga boshqa modullarni olib kelib beradi. (bu ham nomidan ma'lum)
+
+
+
+
+
+                               KAMCHILIKLAR BO'LSA ILTIMOS YOZIB `YUBORING`

@@ -1,0 +1,96 @@
+1. Module nima vazifani bajaradi?
+2. Module ichida `imports`, `exports`, `providers`, `controllers` parametrlari qanday vazifani bajaradi?
+3. Nima uchun Nest.js modullar konsepsiyasiga asoslangan?
+4. Nima uchun har bir komponentni alohida-alohida faylga ajratilgan?
+JAVOBLAR: 
+1.NestJS moduli - bu loyihadagi kodni tashkil etuvchi, alohida komponentlarni va ularning bog'lanishini boshqaruvchi
+ blokdir. Modulda controller, service, va boshqa komponentlar joylashadi va ular bir-biri bilan ishlaydi.
+2.imports: Boshqa modullarni import qiladi, bu orqali bir modul boshqa modullardagi funksiyalarni ishlatishi mumkin.
+exports: Moduldan tashqariga service yoki komponentlarni eksport qiladi.
+providers: Modulda ishlatiladigan servislari yoki boshqa providerlarni taqdim etadi.
+controllers: HTTP so'rovlarini qabul qiluvchi controllerlar ro'yxatini e'lon qiladi.
+3.Modullar konsepsiyasi kodni modulga ajratib, uni tashkil etishga yordam beradi, bu esa kodni o'qish va test qilishni
+ osonlashtiradi.
+
+
+
+1. Provider nima va u nima uchun kerak?
+2. Qanday qilib custom provider yaratish mumkin?
+3. `useClass`, `useValue`, `useFactory` provider turlarining farqi nimada?
+4. Token-based injection nima va u qachon ishlatiladi?
+5. Provider scope (DEFAULT, REQUEST, TRANSIENT) larning farqi nimada?
+JAVOBLAR:
+1.Provider - bu NestJS ilovasida xizmat yoki obyektni yaratadigan, kerakli joyda in'ektsiya qilinadigan komponentdir. 
+  Provider'lar yordamida komponentlar o‘rtasida bog‘lanish o‘rnatiladi.
+2.Custom provider yaratish uchun, useClass, useValue, yoki useFactory bilan NestJS modulida providers array'iga qo‘shish 
+  kerak.
+3.useClass: Provider sifatida boshqa sinf (klass) ishlatish.
+  useValue: Provider sifatida ma'lum bir qiymatni (value) taqdim etish.
+  useFactory: Provider sifatida fabrika funksiyasidan foydalanish (dinamik generatsiya).
+4.Token-based injection - bu dependency injection usuli bo‘lib, u maxsus token orqali in'ektsiya qilishni ta'minlaydi.
+  Bu ko‘pincha muayyan provider yoki klassni aniqlashda ishlatiladi.
+5.DEFAULT: Provider global o‘lchamda mavjud, ya'ni barcha so'rovlar uchun bitta instansiya ishlatiladi.
+  REQUEST: Har bir so'rov uchun yangi instansiya yaratiladi.
+  TRANSIENT: Har bir in'ektsiya uchun yangi instansiya yaratiladi.
+
+
+
+
+
+1. Nest.js'da decorator'lar qanday vazifani bajaradi?
+2. TypeScript'da decorator'lar nima?
+3. Controller method'lari uchun parameter decorator'lar qanday ishlaydi?
+4. `@Injectable()`, `@Controller()`, `@Get()` kabi decorator'lar qanday ishlaydi?
+5. Custom decorator'lar nima uchun foydali?
+JAVOBLAR:
+1. Decorator'lar NestJS'da sinf yoki metodga qo‘shimcha ma'lumotlar berib, uning xatti-harakatini boshqaradi. Masalan,
+   @Get() HTTP so'rovini qabul qilishni bildiradi.
+2. TypeScript'da decorator - bu klasslar, metodlar yoki parametrlar ustida ishlov berish uchun maxsus funktsiyalar.
+3. Parameter decorator'lar metodlar uchun kiruvchi parametrlarni boshqaradi (masalan, @Param(), @Body(), @Query()).
+4. @Injectable(): Klassni provider sifatida ishlatishga imkon beradi.
+   @Controller(): Klassni controller sifatida belgilaydi.
+   @Get(): HTTP GET so'rovi uchun metodni belgilaydi.
+5. Custom decorator'lar sizga o'zingizga xos biznes logikasini yaratishga imkon beradi, masalan, foydalanuvchi haqida 
+   ma'lumot olish yoki maxsus autentifikatsiya qilish.
+
+
+
+
+1. Modullar orasida service'larni qanday ulashish mumkin?
+2. `exports` array'i nima vazifani bajaradi?
+3. Global module nima va u qachon ishlatiladi?
+4. Dynamic modullar nima va ular qachon ishlatiladi?
+5. Circular dependency muammosi nima va uni qanday hal qilish mumkin?
+JAVOBLAR:
+1. Bir modulda exports orqali service'ni eksport qilamiz, boshqa modul esa imports orqali shu service'ni olishadi.
+2. exports array'i moduldan tashqariga komponent yoki service'larni eksport qilish uchun ishlatiladi.
+3. Global module - bu butun ilovada foydalanish mumkin bo‘lgan modul. Ularni @Global() dekoratori bilan e'lon qilamiz.
+4. Dynamic modullar - konfiguratsiyaga asoslangan modullar bo‘lib, ular ilova ishga tushganda dinamik tarzda yaratilib, 
+   parametrlar bilan sozlanadi.
+5. Circular dependency - bu bir modulning boshqa modulni, o‘z navbatida, o‘zini chaqirishi natijasida yuzaga keladigan 
+   muammo. Uni hal qilish uchun forwardRef() yordamida bog'lanishni boshqarish mumkin.
+
+
+
+
+
+1. Nest CLI qanday vazifani bajaradi va qanday qulayliklar taqdim etadi?
+2. Middleware nima va u qanday ishlaydi?
+3. Route-specific middleware va global middleware o'rtasidagi farq nima?
+4. Functional middleware va class middleware o'rtasidagi farq nima?
+5. Express middleware'larini Nest.js'da qanday ishlatish mumkin?
+6. Guard, Interceptor, Filter va Middleware o'rtasidagi farq nima?
+JAVOBLAR:
+1. Nest CLI - bu NestJS loyihalarini yaratish, konfiguratsiyalash va boshqarish uchun vosita. U komponentlar yaratish,
+   serverni ishga tushirish va test qilishni osonlashtiradi.
+2. Middleware - bu HTTP so'rovlaridan oldin yoki keyin bajariladigan funksiyalardir. Ular so'rovni tahlil qilish, 
+   loglash yoki autentifikatsiya qilishda ishlatiladi.
+3. Route-specific middleware: Faqat ma'lum yo‘nalishlarga taalluqli bo‘ladi.
+   Global middleware: Barcha so‘rovlar uchun ishlaydi.
+4. Functional middleware: Oddiy funksiya sifatida yoziladi.
+   Class middleware: NestMiddleware interfeysini implementatsiya qiladi va class sifatida yoziladi.
+5. Express middleware'larini NestJS'da app.use() metodi orqali qo‘shish mumkin.
+6. Guard: So‘rovni tasdiqlash (auth) uchun ishlatiladi.
+   Interceptor: So‘rovni qayta ishlash va javobni manipulyatsiya qilish uchun.
+   Filter: Xatoliklarni boshqarish uchun ishlatiladi.
+   Middleware: So'rov va javobni boshqarishda ishlatiladi.
