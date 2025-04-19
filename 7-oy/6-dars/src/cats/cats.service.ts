@@ -31,7 +31,7 @@ export class CatsService {
         return searching_cat;
       }
     } catch (error) {
-      throw new Error('Xatolik yuz berdi: ' + error.message); // Xatolikni throw qilish
+      throw new Error('Xatolik yuz berdi: ' + error.message);
     }
   }
 
@@ -52,7 +52,6 @@ export class CatsService {
     }
 
     cat.laqab = catdata.laqab;
-    cat.kelgan_vaqti = catdata.kelgan_vaqti;
     cat.narxi = catdata.narxi;
     cat.zoti = catdata.zoti;
     cat.tugulgan_sana = catdata.tugulgan_sana;

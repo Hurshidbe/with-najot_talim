@@ -16,6 +16,4 @@ export class Cat {
   narxi: number;
   @Column()
   tugulgan_sana: Date;
-  @CreateDateColumn()
-  kelgan_vaqti: Date;
 }
