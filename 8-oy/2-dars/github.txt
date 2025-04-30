@@ -1,0 +1,13 @@
+git_init ---> github bilan aloqa faylini yaratib oladi (.git)
+
+git reset --->  hamm git add. qilingan fayllarni bekor qiladi
+
+git log ---> commitlar  ularni idsi va vaqtini ko'rsatib beradi
+
+git log --oneline ---> gitlogni qisqartma ko'rinishida chiqaradi
+
+git config --global init.defaultBranch main/master
+
+git reset --hard (commit_id) ----> tarixga atiy qaytish
+
+git reset --soft (commit_id) ----> tarixga yumshoq qaytish. yozgan kodlarimiz saqlangan holda tarixga qaytish
