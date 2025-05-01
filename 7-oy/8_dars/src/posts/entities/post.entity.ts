@@ -6,23 +6,20 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-@Entity({ name: 'users' })
-export class User {
-  @PrimaryGeneratedColumn('rowid')
-  id: number;
+@Entity({ name: 'posts' })
+export class Post {
+  @PrimaryGeneratedColumn('uuid')
+  postID: string;
 
   @Column({ type: 'varchar' })
-  name: string;
+  title: string;
 
   @Column({ type: 'varchar' })
-  email: string;
-
-  @Column({ type: 'varchar' })
-  password: string;
+  text: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  postedAt: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  editedAt: Date;
 }
