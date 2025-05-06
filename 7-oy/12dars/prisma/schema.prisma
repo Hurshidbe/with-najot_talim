@@ -1,3 +1,9 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -9,18 +15,20 @@ datasource db {
 
 model User {
   id Int @unique @default(autoincrement())
-  username String @unique @db.VarChar(32)
-  password String @db.VarChar(16)
-  balance Int?
-  posts post[]
+  firstname String
+  lastname String
+  age Int
+  salary Int? 
+  posts Post[]
   @@map("users")
 }
-model post {
-  id Int @unique @default(autoincrement())
-  title String @db.VarChar(100)
-  description String @db.VarChar(500)
-  user_id Int
-  user User @relation(fields: [user_id], references: [id])
-@@map("posts")
-}
 
+model Post {
+  id Int @unique @default(autoincrement())
+  title String
+  description String
+  user_id Int
+  user User @relation(fields: [user_id] , references: [id])
+  @@map("posts")
+
+}

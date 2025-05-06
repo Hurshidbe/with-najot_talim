@@ -1,19 +1,26 @@
-import { Injectable } from '@nestjs/common';
-import prismaServise from './prisma/prisma.service';
+import { HttpException, Injectable } from '@nestjs/common';
+import prismaService from './prisma/prisma.service';
 import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class AppService {
   constructor(
-    private prisma: prismaServise,
-    private configervice: ConfigService,
+    private prismaService: prismaService,
+    private configservice: ConfigService,
   ) {}
-  async addUser(data: any) {
-    const created = await this.prisma.user.create({ data });
-    return created;
+
+  async addUser(userdata: any) {
+    const saved = await this.prismaService.user.create({ data: userdata });
+    return { status: 'success', newUser: saved };
   }
 
-  async getAll() {
-    return await this.prisma.user.findMany();
+  async getOneById(id: number) {
+    const finded = await this.prismaService.user.findUnique({
+      where: { id },
+      include: { posts: true },
+    });
+    if (!finded) throw new HttpException('user not found', 404);
+
+    return { status: 'success', user: finded };
   }
 }

@@ -1,0 +1,64 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model user {
+  id String @id @unique @default(uuid()) @db.Uuid
+  username String @db.VarChar(32)
+  password String @db.VarChar(16)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  @@index([username])
+  @@map("users")
+  orders order[]
+}
+
+model post {
+ id String @id @unique @default(uuid()) @db.Uuid
+ title String @db.VarChar(150)
+ description String @db.VarChar(500)
+ createdAt DateTime @default(now())
+ editedAt DateTime @updatedAt
+ @@map("posts")
+}
+
+model product {
+  id String @id @unique @default(uuid()) @db.Uuid
+  name String @db.VarChar(150)
+  description String @db.VarChar(500)
+  img_url String?
+  @@map("products")
+}
+//// status uchun enum
+enum status {
+  pending
+  completed
+  rejected
+
+}
+
+
+model order {
+  id String @id @unique @default(uuid()) @db.Uuid
+  user_id String @db.Uuid
+  total_price Int
+  status status @default(pending)
+  orderItems order_items[]   //one to many
+  user user @relation(fields: [user_id] , references: [id])
+  @@map("orders")
+}
+
+model order_items {
+  id String @id @unique @default(uuid()) @db.Uuid
+  order_id String  @db.Uuid
+  product_id String  @db.Uuid
+  product_count Int
+  order order @relation(fields: [order_id] ,references: [id])  // many to one
+  @@map("order_items")
+}

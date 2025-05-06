@@ -3,7 +3,9 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { prismaModule } from './prisma/prisma.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import configuration from './config';
+import configurations from './config';
+import appConfig from './config/app.config';
+import jwtConfig from './config/jwt.config';
 import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
 
 @Module({
@@ -11,15 +13,14 @@ import { JwtModule, JwtModuleOptions } from '@nestjs/jwt';
     prismaModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      load: configurations,
       envFilePath: '.env',
-      load: configuration,
     }),
-
     JwtModule.registerAsync({
-      imports: [ConfigModule],
       inject: [ConfigService],
+      imports: [ConfigModule],
       useFactory: (ConfigService: ConfigService) => {
-        return ConfigService.get('jwt_func') as JwtModuleOptions;
+        return ConfigService.get('jwt_config') as JwtModuleOptions;
       },
     }),
   ],

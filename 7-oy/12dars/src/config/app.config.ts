@@ -3,6 +3,6 @@ import { app } from 'src/common/interfaces/app.interface';
 
 export default registerAs('app', (): app => {
   return {
-    PORT: parseInt(process.env.PORT as string),
+    PORT: parseInt(process.env.PORT as string) || 8080,
   };
 });

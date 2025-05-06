@@ -1,3 +1,3 @@
-export class app {
+export interface app {
   PORT: number;
 }
