@@ -3,6 +3,7 @@ import {
   IsNotEmpty,
   IsString,
   IsStrongPassword,
+  IsUrl,
   Length,
   MaxLength,
 } from 'class-validator';
@@ -23,4 +24,7 @@ export class registerDto {
   @MaxLength(16)
   @IsString()
   password_hash: string;
+
+  @IsNotEmpty()
+  avatar_url: string;
 }

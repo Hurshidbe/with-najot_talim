@@ -1,6 +1,5 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
+import { Global, Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
-
 @Injectable()
 export class prismaservice extends PrismaClient implements OnModuleInit {
   onModuleInit() {
