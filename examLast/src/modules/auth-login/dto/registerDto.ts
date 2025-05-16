@@ -20,9 +20,7 @@ export class registerDto {
   @IsNotEmpty()
   email: string;
 
-  @IsStrongPassword({ minLength: 6, minUppercase: 1 })
-  @MaxLength(16)
-  @IsString()
+  @IsNotEmpty()
   password_hash: string;
 
   @IsNotEmpty()

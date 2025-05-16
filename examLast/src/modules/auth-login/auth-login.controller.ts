@@ -17,7 +17,7 @@ import { loginDto } from './dto/loginDto';
 @Controller('auth')
 export class AuthLoginController {
   constructor(private readonly authLoginService: AuthLoginService) {}
-  @Put('register')
+  @Post('register')
   async register(@Body() userdata: registerDto) {
     try {
       return await this.authLoginService.registerchi(userdata);
@@ -26,7 +26,7 @@ export class AuthLoginController {
     }
   }
 
-  @Put('login')
+  @Post('login')
   async loginer(@Body() logdata: loginDto) {
     try {
       return await this.authLoginService.loginchi(logdata);
