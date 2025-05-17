@@ -3,30 +3,27 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthLoginModule } from './modules/auth-login/auth-login.module';
-import { AuthLoginService } from './modules/auth-login/auth-login.service';
-import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { config } from 'process';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
-    PrismaModule,
-    AuthLoginModule,
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     JwtModule.registerAsync({
-      inject: [ConfigService],
+      global: true,
       imports: [ConfigModule],
-      useFactory: (service: ConfigService) => {
+      useFactory: async (configService: ConfigService) => {
         return {
-          secret: service.get('JWT'),
-          signOptions: {
-            expiresIn: '10m',
-          },
+          secret: configService.get('JWT'),
+          signOptions: { expiresIn: '100m' },
         };
       },
+      inject: [ConfigService],
     }),
+    PrismaModule,
+    AuthLoginModule,
   ],
   controllers: [AppController],
-  providers: [AppService, AuthLoginService],
+  providers: [AppService],
 })
 export class AppModule {}
