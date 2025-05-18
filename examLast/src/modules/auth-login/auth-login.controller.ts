@@ -19,6 +19,9 @@ import { loginDto } from './dto/loginDto';
 import { Request, response, Response } from 'express';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { repassDto } from './dto/repass.dto';
+import { Role } from '@prisma/client';
+import { RolesGuard } from 'src/guards/role.guard';
+import { Roles } from 'src/decorators/role.decorator';
 
 @Controller('auth')
 export class AuthLoginController {
@@ -31,7 +34,6 @@ export class AuthLoginController {
       throw new HttpException(error.message, error.status);
     }
   }
-
   @Post('login')
   async loginer(
     @Body() logdata: loginDto,
@@ -39,7 +41,6 @@ export class AuthLoginController {
   ) {
     const data = await this.authLoginService.loginchi(logdata);
     try {
-      console.log(data.token);
       res.cookie('authtoken', data.token, { httpOnly: true });
       return data.message;
     } catch (error) {
@@ -54,10 +55,23 @@ export class AuthLoginController {
       const user = await req.user;
       const userid = user.id;
       const userPass = user.password;
-      console.log(userPass);
-      this.authLoginService.passChanger(newPass, userid, userPass);
+      return this.authLoginService.passChanger(newPass, userid, userPass);
     } catch (error) {
       throw new HttpException(error.message, error.status);
     }
+  }
+
+  @UseGuards(AuthGuard)
+  @Post('logout')
+  logout(@Req() req: any, @Res() res: Response) {
+    const user = req.user;
+    const userid = user.id;
+
+    res.clearCookie('access_token', {
+      httpOnly: true,
+      sameSite: 'strict',
+      secure: true,
+    });
+    return this.authLoginService.logout(userid);
   }
 }

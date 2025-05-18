@@ -53,13 +53,13 @@ enum movie_quality {
 
 // User modeli
 model User {
-  id            String            @id @default(uuid()) @db.Uuid
-  username      String            @db.VarChar(50) @unique
-  email         String            @db.VarChar(100) @unique
-  password_hash String            @db.VarChar(255)
-  role          Role              @default(User)
-  avatar_url    String            @db.VarChar(255)
-  createdAt     DateTime          @default(now())
+  id String @id @default(uuid()) @db.Uuid
+  username String @db.VarChar(50) @unique
+  email String @db.VarChar(100) @unique
+  password_hash String @db.VarChar(255)
+  role Role @default(User)
+  avatar_url String @db.VarChar(255)
+  createdAt DateTime @default(now())
 //ulanishlar
   subscription  usersubscription[]
   movies movies[]
@@ -71,30 +71,30 @@ model User {
 
 // Subscription modeli
 model subscriptionModel {
-  id            String            @id @default(uuid()) @db.Uuid
-  name          String            @db.VarChar(50)
-  price         Decimal           @db.Decimal(10, 2)
+  id String @id @default(uuid()) @db.Uuid
+  name String @db.VarChar(50)
+  price Decimal @db.Decimal(10, 2)
   duration_days Int
-  features      Json
-  is_active     Boolean           @default(true)
-  plan          usersubscription[]
+  features Json
+  is_active Boolean @default(true)
+  plan usersubscription[]
 }
 
 // usersubscription modeli
 model usersubscription {
   id String @id @default(uuid()) @db.Uuid
 
-  user_id String             @db.Uuid
+  user_id String @db.Uuid
   user User @relation(fields: [user_id], references: [id])
 
-  plan_id String             @db.Uuid
+  plan_id String  @db.Uuid
   plan subscriptionModel  @relation(fields: [plan_id], references: [id])
 
-  started_time DateTime           @default(now())
+  started_time DateTime @default(now())
   end_date DateTime
-  status subsStatus         @default(pending_payment)
-  auto_renew Boolean            @default(false)
-  created_at DateTime  @default(now())
+  status subsStatus @default(pending_payment)
+  auto_renew Boolean @default(false)
+  created_at DateTime @default(now())
 
   //ulanishlar
 

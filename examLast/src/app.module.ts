@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthLoginModule } from './modules/auth-login/auth-login.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
+import { SubscriptionmodelModule } from './modules/subscriptionmodel/subscriptionmodel.module';
+import { AdminPanelModule } from './modules/admin-panel/admin-panel.module';
 
 @Module({
   imports: [
@@ -22,8 +22,10 @@ import { JwtModule } from '@nestjs/jwt';
     }),
     PrismaModule,
     AuthLoginModule,
+    SubscriptionmodelModule,
+    AdminPanelModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

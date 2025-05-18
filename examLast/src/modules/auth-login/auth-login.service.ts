@@ -1,6 +1,7 @@
 import {
   Body,
   HttpException,
+  HttpStatus,
   Injectable,
   Patch,
   Post,
@@ -62,5 +63,21 @@ export class AuthLoginService {
     return { message: `Tizimga hush kelibsiz ${isRgstrd.username}`, token };
   }
   ////////////////// repass func
-  async passChanger(newPass: repassDto, userid: string, userPass: string) {}
+  async passChanger(newPass: repassDto, userid: string, userPass: string) {
+    const istruePass = await bcrypt.compare(newPass.oldpass, userPass);
+    if (!istruePass)
+      throw new HttpException('your old pass is not correct', 401);
+
+    const newhPass = await bcrypt.hash(newPass.newpass, 12);
+    await this.prisma.user.update({
+      where: { id: userid },
+      data: { password_hash: newhPass },
+    });
+    return 'your password changed successfully';
+  }
+  ////////////////  logout
+  async logout(userid: string) {
+    await this.prisma.user.deleteMany({ where: { id: userid } });
+    return 'logged out';
+  }
 }
