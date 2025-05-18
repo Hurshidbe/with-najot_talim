@@ -5,6 +5,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { SubscriptionmodelModule } from './modules/subscriptionmodel/subscriptionmodel.module';
 import { AdminPanelModule } from './modules/admin-panel/admin-panel.module';
+import { MoviesModule } from './modules/movies/movies.module';
+import { CategoriesModule } from './modules/categories/categories.module';
+import { PaymentsModule } from './modules/payments/payments.module';
 
 @Module({
   imports: [
@@ -24,6 +27,9 @@ import { AdminPanelModule } from './modules/admin-panel/admin-panel.module';
     AuthLoginModule,
     SubscriptionmodelModule,
     AdminPanelModule,
+    MoviesModule,
+    CategoriesModule,
+    PaymentsModule,
   ],
   controllers: [],
   providers: [],

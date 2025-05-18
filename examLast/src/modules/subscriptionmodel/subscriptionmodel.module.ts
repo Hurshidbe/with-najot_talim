@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { SubscriptionmodelService } from './subscriptionmodel.service';
-import { SubscriptionmodelController } from './subscriptionmodel.controller';
+import { SubscriptionController } from './subscriptionmodel.controller';
+import { SubscriptionService } from './subscriptionmodel.service';
 
 @Module({
-  controllers: [SubscriptionmodelController],
-  providers: [SubscriptionmodelService],
+  controllers: [SubscriptionController],
+  providers: [SubscriptionService],
 })
 export class SubscriptionmodelModule {}

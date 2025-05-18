@@ -17,7 +17,7 @@ export class AuthGuard implements CanActivate {
       throw new HttpException("token yo'q. iltomos ro'yhatdan o'ting", 402);
 
     try {
-      const decoded = await this.jwt.verifyAsync(token); // <--- await kerak
+      const decoded = await this.jwt.verifyAsync(token);
       request.user = decoded;
       return true;
     } catch (error) {

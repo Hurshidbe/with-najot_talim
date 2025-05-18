@@ -70,36 +70,36 @@ model User {
 }
 
 // Subscription modeli
-model subscriptionModel {
-  id String @id @default(uuid()) @db.Uuid
-  name String @db.VarChar(50)
-  price Decimal @db.Decimal(10, 2)
+model subscriptionmodel {
+  id           String             @id @default(uuid()) @db.Uuid
+  name         String             @db.VarChar(50)
+  price        Decimal            @db.Decimal(10, 2)
   duration_days Int
-  features Json
-  is_active Boolean @default(true)
-  plan usersubscription[]
+  features     Json
+  is_active    Boolean            @default(true)
+  plan         usersubscription[]
+
+  @@map("subscriptionmodel")
 }
+
 
 // usersubscription modeli
 model usersubscription {
-  id String @id @default(uuid()) @db.Uuid
+  id          String             @id @default(uuid()) @db.Uuid
+  user_id     String             @db.Uuid
+  user        User               @relation(fields: [user_id], references: [id])
+  plan_id     String             @db.Uuid
+  plan        subscriptionmodel  @relation(fields: [plan_id], references: [id])
+  started_time DateTime          @default(now())
+  end_date    DateTime
+  status      subsStatus         @default(pending_payment)
+  auto_renew  Boolean            @default(false)
+  created_at  DateTime           @default(now())
 
-  user_id String @db.Uuid
-  user User @relation(fields: [user_id], references: [id])
-
-  plan_id String  @db.Uuid
-  plan subscriptionModel  @relation(fields: [plan_id], references: [id])
-
-  started_time DateTime @default(now())
-  end_date DateTime
-  status subsStatus @default(pending_payment)
-  auto_renew Boolean @default(false)
-  created_at DateTime @default(now())
-
-  //ulanishlar
-
-  paymants payments[]
+  payments    payments[]
 }
+
+
 
 
 model payments {
@@ -158,10 +158,8 @@ model movie_categories {
 
 model movie_files {
   id String @id @default(uuid()) @db.Uuid
-  
   movie_id String @db.Uuid
   movie movies @relation(fields: [movie_id] , references: [id])
-
   file_url String @db.VarChar(255)
   quality movie_quality
   language String @db.VarChar(20) @default("uz")
@@ -169,22 +167,17 @@ model movie_files {
 
 model favorites {
   id String @id @default(uuid()) @db.Uuid
-  
   user_id String @db.Uuid
   user User @relation(fields: [user_id] , references: [id])
-
   movie_id String @db.Uuid
   movie movies @relation(fields: [movie_id] , references: [id])
-
   created_at DateTime @default(now())
 }
 
 model reviews {
   id String @id @default(uuid()) @db.Uuid
-
   user_id String @db.Uuid
   user User @relation(fields: [user_id] , references: [id])
-
   movie_id String @db.Uuid
   movie movies @relation(fields: [movie_id] , references: [id])
 
