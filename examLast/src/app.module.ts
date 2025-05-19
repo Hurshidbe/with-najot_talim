@@ -7,7 +7,12 @@ import { SubscriptionmodelModule } from './modules/subscriptionmodel/subscriptio
 import { AdminPanelModule } from './modules/admin-panel/admin-panel.module';
 import { MoviesModule } from './modules/movies/movies.module';
 import { CategoriesModule } from './modules/categories/categories.module';
-import { PaymentsModule } from './modules/payments/payments.module';
+import { PaymentModule } from './modules/payment/payment.module';
+import { UsersSubscriptionModule } from './modules/users-subscription/users-subscription.module';
+import { FavoritesModule } from './modules/favorites/favorites.module';
+import { ReviewsModule } from './modules/reviews/reviews.module';
+import { WatchHistoryModule } from './modules/watch-history/watch-history.module';
+import { MovieFilesModule } from './modules/movie-files/movie-files.module';
 
 @Module({
   imports: [
@@ -29,7 +34,14 @@ import { PaymentsModule } from './modules/payments/payments.module';
     AdminPanelModule,
     MoviesModule,
     CategoriesModule,
-    PaymentsModule,
+    PaymentModule,
+    PaymentModule,
+    UsersSubscriptionModule,
+    PaymentModule,
+    FavoritesModule,
+    ReviewsModule,
+    WatchHistoryModule,
+    MovieFilesModule,
   ],
   controllers: [],
   providers: [],

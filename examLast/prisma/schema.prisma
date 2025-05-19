@@ -182,7 +182,7 @@ model reviews {
   movie movies @relation(fields: [movie_id] , references: [id])
 
   raiting Int @db.Integer
-  comment String @db.Text
+  comment String @db.Text @default("")
   created_at DateTime @default(now())
 }
 
