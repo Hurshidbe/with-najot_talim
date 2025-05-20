@@ -26,18 +26,21 @@ export class AuthLoginService {
     private jwt: JwtService,
   ) {}
   /////////// registerFunc
-  async registerchi(userdata: registerDto) {
+  async registerchi(userdata: registerDto, avatar_url: string) {
     const hashedpass = await bcrypt.hash(userdata.password_hash, 12);
+
     const saved = await this.prisma.user.create({
       data: {
         email: userdata.email,
         username: userdata.username,
-        avatar_url: userdata.avatar_url,
+        avatar_url: avatar_url,
         password_hash: hashedpass,
       },
     });
-    return { status: 'succes', newUser: saved };
+
+    return { status: 'success', newUser: saved };
   }
+
   //////////   login func
   async loginchi(logdata: loginDto) {
     const isRgstrd = await this.prisma.user.findUnique({
