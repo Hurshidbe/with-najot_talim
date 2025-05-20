@@ -7,6 +7,7 @@ import {
   UseGuards,
   Req,
   ParseIntPipe,
+  HttpException,
 } from '@nestjs/common';
 import { ReviewsService } from './reviews.service';
 import { CreateReviewDto } from './dto/create-review.dto';
@@ -23,11 +24,19 @@ export class ReviewsController {
     @Req() req: any,
     @Body() dto: CreateReviewDto,
   ) {
-    return this.reviewsService.addReview(req.user.id, movieId, dto);
+    try {
+      return this.reviewsService.addReview(req.user.id, movieId, dto);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 
   @Get(':movieId')
   getReviews(@Param('movieId') movieId: string) {
-    return this.reviewsService.getReviews(movieId);
+    try {
+      return this.reviewsService.getReviews(movieId);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 }

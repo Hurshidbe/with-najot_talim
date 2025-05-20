@@ -6,6 +6,7 @@ import {
   Body,
   UseGuards,
   Req,
+  HttpException,
 } from '@nestjs/common';
 import { PaymentService } from './payment.service';
 import { CreatePaymentDto } from './dto/create-payment.dto';
@@ -21,14 +22,22 @@ export class PaymentController {
   @UseGuards(AuthGuard)
   @Post('create')
   createPayment(@Req() req: any, @Body() dto: CreatePaymentDto) {
-    const userId = req.user.id;
-    return this.paymentService.createPayment(userId, dto);
+    try {
+      const userId = req.user.id;
+      return this.paymentService.createPayment(userId, dto);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 
   @UseGuards(AuthGuard)
   @Get('my')
   getMyPayments(@Req() req: any) {
-    const userId = req.user.id;
-    return this.paymentService.getMyPayments(userId);
+    try {
+      const userId = req.user.id;
+      return this.paymentService.getMyPayments(userId);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 }

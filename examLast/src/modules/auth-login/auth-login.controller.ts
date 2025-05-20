@@ -19,9 +19,6 @@ import { loginDto } from './dto/loginDto';
 import { Request, response, Response } from 'express';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { repassDto } from './dto/repass.dto';
-import { Role } from '@prisma/client';
-import { RolesGuard } from 'src/guards/role.guard';
-import { Roles } from 'src/decorators/role.decorator';
 
 @Controller('auth')
 export class AuthLoginController {

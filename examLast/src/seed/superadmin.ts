@@ -30,13 +30,13 @@ async function yaratish() {
   });
 
   console.log(
-    '✅ Superadmin databasaga muvaffaqiyatli saqlandi yoki allaqachon mavjud',
+    'Superadmin databasaga muvaffaqiyatli saqlandi yoki allaqachon mavjud(urug` ekildi)',
   );
 }
 
 yaratish()
   .catch((e) => {
-    console.error('❌ Xatolik:', e.message);
+    console.error('Xatolik:', e.message);
     process.exit(1);
   })
   .finally(async () => {

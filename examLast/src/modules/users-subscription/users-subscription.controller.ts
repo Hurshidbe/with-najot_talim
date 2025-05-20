@@ -23,15 +23,23 @@ export class UserSubscriptionController {
 
   @Post('select')
   async selectPlan(@Req() req: any, @Body() dto: CreateSubscriptionDto) {
-    return this.userSubscriptionService.selectPlan(req.user.id, dto);
+    try {
+      return this.userSubscriptionService.selectPlan(req.user.id, dto);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 
   @Get('my-plan')
   @UseGuards(AuthGuard)
   async getMyPlan(@Req() req: any) {
-    const userId = req.user.id;
-    console.log(userId);
-    return this.userSubscriptionService.getMyPlan(userId);
+    try {
+      const userId = req.user.id;
+      console.log(userId);
+      return this.userSubscriptionService.getMyPlan(userId);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 
   @Patch(':id/renew')
@@ -40,6 +48,10 @@ export class UserSubscriptionController {
     @Param('id') id: string,
     @Body() dto: UpdateRenewDto,
   ) {
-    return this.userSubscriptionService.updateAutoRenew(req.user.id, id, dto);
+    try {
+      return this.userSubscriptionService.updateAutoRenew(req.user.id, id, dto);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 }

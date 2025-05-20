@@ -20,7 +20,6 @@ export class ReviewsService {
       throw new BadRequestException('Rating must be between 1 and 5');
     }
 
-    // Agar foydalanuvchi allaqachon sharh qoldirgan bo'lsa, yangilab qo'yamiz
     const existing = await this.prisma.reviews.findFirst({
       where: { user_id: userId, movie_id: movieId },
     });
@@ -36,7 +35,6 @@ export class ReviewsService {
       });
     }
 
-    // Yangi sharh yaratish
     return this.prisma.reviews.create({
       data: {
         user_id: userId,
@@ -59,7 +57,7 @@ export class ReviewsService {
       orderBy: { created_at: 'desc' },
     });
 
-    // Umumiy ratingni hisoblash
+    // ratingni hisoblash
     const avgRating =
       reviews.length > 0
         ? reviews.reduce((acc, r) => acc + r.raiting, 0) / reviews.length

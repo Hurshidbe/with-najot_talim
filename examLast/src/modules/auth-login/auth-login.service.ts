@@ -16,7 +16,6 @@ import { Http2ServerRequest } from 'http2';
 import { JwtService } from '@nestjs/jwt';
 import { Request, Response } from 'express';
 import { repassDto } from './dto/repass.dto';
-import { userData } from 'src/interfaces/req-user.interface';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { error } from 'console';
 

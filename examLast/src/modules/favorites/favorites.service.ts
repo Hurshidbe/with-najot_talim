@@ -39,7 +39,7 @@ export class FavoritesService {
     return this.prisma.favorites.findMany({
       where: { user_id: userId },
       include: {
-        movie: true, // kinoni ham qaytaradi
+        movie: true,
       },
       orderBy: { created_at: 'desc' },
     });

@@ -42,14 +42,12 @@ export class MoviesService {
     const movie = await this.prisma.movies.findUnique({
       where: { id },
     });
-
     if (!movie) {
       throw new NotFoundException('Film topilmadi');
     }
     await this.prisma.movies.delete({
       where: { id },
     });
-
     return { message: `film o'chirildi` };
   }
 }

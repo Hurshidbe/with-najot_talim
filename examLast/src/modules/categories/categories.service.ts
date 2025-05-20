@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
 import { prismaservice } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -21,7 +20,6 @@ export class CategoriesService {
       await this.prisma.categories.delete({ where: { id } });
       return { status: 'success', message: `Category with id ${id} deleted.` };
     } catch (error) {
-      // Agar category topilmasa yoki boshqa xatolik bo‘lsa
       return { status: 'error', message: error.message };
     }
   }

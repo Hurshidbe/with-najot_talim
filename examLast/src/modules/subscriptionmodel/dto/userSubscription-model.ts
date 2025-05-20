@@ -1,4 +1,3 @@
-// create-subscription.dto.ts
 import {
   IsString,
   IsNumber,

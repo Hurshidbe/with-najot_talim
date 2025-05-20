@@ -53,7 +53,11 @@ export class MoviesController {
 
   @Delete(':id')
   async deleteMovieById(@Param('id') id: string, @Req() req: any) {
-    const userId = req.user.userId;
-    return await this.moviesService.deleteById(id, userId);
+    try {
+      const userId = req.user.userId;
+      return await this.moviesService.deleteById(id, userId);
+    } catch (error) {
+      throw new HttpException(error.message, error.status);
+    }
   }
 }

@@ -1,7 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  // Agar kerak bo'lsa, chiqish papkasini qo'y
-  // output = "./node_modules/@prisma/client"
+ 
 }
 
 datasource db {
@@ -9,7 +8,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Enums
+// Enumla
 enum Role {
   User
   Admin
@@ -42,14 +41,7 @@ enum movie_subs {
   free
 }
 
-enum movie_quality {
-  p240
-  p360
-  p480
-  p720
-  p1080
-  k4
-}
+
 
 // User modeli
 model User {
@@ -161,7 +153,7 @@ model movie_files {
   movie_id String @db.Uuid
   movie movies @relation(fields: [movie_id] , references: [id])
   file_url String @db.VarChar(255)
-  quality movie_quality
+  quality String
   language String @db.VarChar(20) @default("uz")
  }
 
