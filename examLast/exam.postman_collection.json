@@ -1,0 +1,943 @@
+{
+	"info": {
+		"_postman_id": "69057bd3-5d26-45a3-9970-8b60a8f67371",
+		"name": "exam",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40963944"
+	},
+	"item": [
+		{
+			"name": "auth_login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"jh\",\r\n    \"email\" : \"ash@gmail.com\",\r\n    \"password_hash\" :\"h\",\r\n    \"avatar_url\" : \"hhhttpsd:mkmkre.avatar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "Husanboy",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hhhh@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password_hash",
+							"value": "husan2004",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/egamb/OneDrive/Pictures/Screenshots/Screenshot 2025-03-23 124228.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_repass",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldpass\" : \"hj\",\r\n    \"newpass\" : \"cemkmmgtr\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/repass",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"repass"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"oldpass\" : \"hj\",\r\n    \"newpass\" : \"cemkmmgtr\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "superAdmin_add_admin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"h@gmail.com \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/adminpanel/newadmi",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"adminpanel",
+						"newadmi"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "superAdmin_unadmin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"h@gmail.com \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/adminpanel/unadmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"adminpanel",
+						"unadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "superAdmin_newSuperadmin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"h@gmail.com \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/adminpanel/addsuperadmin",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"adminpanel",
+						"addsuperadmin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "superAdmin_getAdmins",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "superAdmin_getallUsers",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "admin_uploadMovie",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Ibrat\",\r\n  \"slug\": \"ibrat\",\r\n  \"description\": \"Ibratli hayot yo‘lini ko‘rsatadigan, hayotiy voqealarga boy dramatik o‘zbek filmi.\",\r\n  \"release_year\": 2023,\r\n  \"duration_minutes\": 110,\r\n  \"poster_url\": \"https://example.com/images/ibrat.jpg\", \r\n  \"raiting\": 8.1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_updateMovieinfo",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Ibrat\",\r\n  \"slug\": \"ibrat\",\r\n  \"description\": \"Ibrat hayot yo‘lini ko‘rsatadigan, hayotiy voqealarga boy dramatik o‘zbek filmi.\",\r\n  \"release_year\": 2023,\r\n  \"duration_minutes\": 110,\r\n  \"poster_url\": \"https://example.com/images/ibrat.jpg\", \r\n  \"raiting\": 8.1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies/a500002b-075c-4170-ab4a-dff8c410ab6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"a500002b-075c-4170-ab4a-dff8c410ab6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_daleteMovieById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Ibrat\",\r\n  \"slug\": \"ibrat\",\r\n  \"description\": \"Ibrat hayot yo‘lini ko‘rsatadigan, hayotiy voqealarga boy dramatik o‘zbek filmi.\",\r\n  \"release_year\": 2023,\r\n  \"duration_minutes\": 110,\r\n  \"poster_url\": \"https://example.com/images/ibrat.jpg\", \r\n  \"raiting\": 8.1\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies/a500002b-075c-4170-ab4a-dff8c410ab6c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"a500002b-075c-4170-ab4a-dff8c410ab6c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_create_category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\" : \"horror\",\r\n   \"slug\" :\"horror\",\r\n   \"description\" : \"bu kategoriyadagi barcha filmlar qo'rqinchili filmlar\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_getAllCategory",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\" : \"horror\",\r\n   \"slug\" :\"horror\",\r\n   \"description\" : \"bu kategoriyadagi barcha filmlar qo'rqinchili filmlar\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/categories/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"categories",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_deleteCateById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"name\" : \"horror\",\r\n   \"slug\" :\"horror\",\r\n   \"description\" : \"bu kategoriyadagi barcha filmlar qo'rqinchili filmlar\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/categories/0631c361-7276-448b-8ac4-2ab1b2805953",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"categories",
+						"0631c361-7276-448b-8ac4-2ab1b2805953"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_CreatePayment",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "admin_addSubsPlan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\" : \"1 oylik premium\",\r\n  \"price\" : 99.99\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/subscriptions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"subscriptions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_updateSubsPlan",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"3 oylik premium narxi oshdi. noinsofmiz\",\r\n  \"price\": 299.99,\r\n  \"duration_days\": 90,\r\n  \"features\": \"{\\\"reklamalar\\\":\\\"yo'q\\\",\\\"kino-sifati\\\":\\\"144...4k\\\",\\\"bonus\\\":\\\"hamma kinolar bepul\\\"}\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/subscriptions/bd3fe349-7add-4f30-bbe6-7c2cbe06b778",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"subscriptions",
+						"bd3fe349-7add-4f30-bbe6-7c2cbe06b778"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_getAllSubsPlan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/subscriptions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"subscriptions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_delSubsPlanById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"3 oylik premium narxi oshdi. noinsofmiz\",\r\n  \"price\": 299.99,\r\n  \"duration_days\": 90,\r\n  \"features\": \"{\\\"reklamalar\\\":\\\"yo'q\\\",\\\"kino-sifati\\\":\\\"144...4k\\\",\\\"bonus\\\":\\\"hamma kinolar bepul\\\"}\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/subscriptions/bd3fe349-7add-4f30-bbe6-7c2cbe06b778",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"subscriptions",
+						"bd3fe349-7add-4f30-bbe6-7c2cbe06b778"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_sub_model_select",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"plan_id\": \"e2ffdcc7-af63-474e-b8c1-c506f414075e\",\r\n  \"auto_renew\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user-subscription/select",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user-subscription",
+						"select"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_sub_model_getMyplan",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"plan_id\": \"e2ffdcc7-af63-474e-b8c1-c506f414075e\",\r\n  \"auto_renew\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/user-subscription/my-plan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user-subscription",
+						"my-plan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_plan_autorenew",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"auto_renew\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/user-subscription/fc5b38f5-b35b-4b00-875c-0fdabe277f9b/renew",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"user-subscription",
+						"fc5b38f5-b35b-4b00-875c-0fdabe277f9b",
+						"renew"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_payment_create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_subs_id\": \"fc5b38f5-b35b-4b00-875c-0fdabe277f9b\",\r\n  \"payment_method\": \"card\",\r\n  \"payment_details\": {\r\n    \"card_number\": \"8600 1234 5678 9012\",\r\n    \"provider\": \"Click\",\r\n    \"phone\": \"+998901234567\"\r\n  },\r\n  \"status\": \"pending\",\r\n  \"external_transaction_id\": \"TXN123456789\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/payments/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"payments",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_getMyPayments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_subs_id\": \"fc5b38f5-b35b-4b00-875c-0fdabe277f9b\",\r\n  \"payment_method\": \"card\",\r\n  \"payment_details\": {\r\n    \"card_number\": \"8600 1234 5678 9012\",\r\n    \"provider\": \"Click\",\r\n    \"phone\": \"+998901234567\"\r\n  },\r\n  \"status\": \"pending\",\r\n  \"external_transaction_id\": \"TXN123456789\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/payments/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"payments",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_AddFavorites",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_subs_id\": \"fc5b38f5-b35b-4b00-875c-0fdabe277f9b\",\r\n  \"payment_method\": \"card\",\r\n  \"payment_details\": {\r\n    \"card_number\": \"8600 1234 5678 9012\",\r\n    \"provider\": \"Click\",\r\n    \"phone\": \"+998901234567\"\r\n  },\r\n  \"status\": \"pending\",\r\n  \"external_transaction_id\": \"TXN123456789\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/favorites/13c04152-0acc-4456-8544-5553913b146b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"favorites",
+						"13c04152-0acc-4456-8544-5553913b146b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_FavoritesList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"title\": \"Ibrat\",\r\n  \"slug\": \"ibrat\",\r\n  \"description\": \"Ibratli hayot yo‘lini ko‘rsatadigan, hayotiy voqealarga boy dramatik o‘zbek filmi.\",\r\n  \"release_year\": 2023,\r\n  \"duration_minutes\": 110,\r\n  \"poster_url\": \"https://example.com/images/ibrat.jpg\", \r\n  \"raiting\": 8.1\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost:4000/favorites/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"favorites",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_delete_favById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/favorites/13c04152-0acc-4456-8544-5553913b146b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"favorites",
+						"13c04152-0acc-4456-8544-5553913b146b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_addReview",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"raiting\": 5,\r\n  \"comment\": \"zo'r hammaga tavsiya qilaman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:4000/reviews/13c04152-0acc-4456-8544-5553913b146b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews",
+						"13c04152-0acc-4456-8544-5553913b146b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_getMyReviews",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"raiting\": 5,\r\n  \"comment\": \"zo'r hammaga tavsiya qilaman\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/reviews/13c04152-0acc-4456-8544-5553913b146b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"reviews",
+						"13c04152-0acc-4456-8544-5553913b146b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_watch_history",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/history/13c04152-0acc-4456-8544-5553913b146b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"history",
+						"13c04152-0acc-4456-8544-5553913b146b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "user_getMyWatchHstry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/history/my",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"history",
+						"my"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_uploadMovieFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "quality",
+							"value": "p720",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "uz",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/egamb/OneDrive/Videos/Captures/kichkina.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies/2c37632a-db04-4ac9-86f5-f5dc0ff5680c/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"2c37632a-db04-4ac9-86f5-f5dc0ff5680c",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_getMovFileById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "quality",
+							"value": "p720",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "uz",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/egamb/OneDrive/Videos/Captures/kichkina.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/movies/2c37632a-db04-4ac9-86f5-f5dc0ff5680c/files",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"movies",
+						"2c37632a-db04-4ac9-86f5-f5dc0ff5680c",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "admin_delete_moviFileById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "quality",
+							"value": "p720",
+							"type": "text"
+						},
+						{
+							"key": "language",
+							"value": "uz",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/egamb/OneDrive/Videos/Captures/kichkina.mp4"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:4000/files/fe6c8d28-61e9-43a0-8260-69a7b4f0587b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"files",
+						"fe6c8d28-61e9-43a0-8260-69a7b4f0587b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
